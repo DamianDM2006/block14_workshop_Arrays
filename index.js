@@ -3,7 +3,7 @@
  * @returns {number} the length of the array
  */
 function getLength(numbers) {
-  // TODO
+  return numbers.length;
 }
 
 /**
@@ -11,7 +11,12 @@ function getLength(numbers) {
  * @returns {number} the sum of the numbers
  */
 function getSum(numbers) {
-  // TODO
+  let sumOfNumbers = 0;
+  for (let i = 0; i < numbers.length; i = i + 1) {
+    const indivNumber = numbers[i];
+    sumOfNumbers = sumOfNumbers + indivNumber;
+  }
+  return sumOfNumbers;
 }
 
 /**
@@ -19,7 +24,7 @@ function getSum(numbers) {
  * @returns {number} the mean of the numbers
  */
 function getMean(numbers) {
-  // TODO
+  return getSum(numbers) / getLength(numbers);
 }
 
 /**
@@ -27,7 +32,13 @@ function getMean(numbers) {
  * @returns {number} the smallest of the numbers
  */
 function getMin(numbers) {
-  // TODO
+  let isSmallest = numbers[0];
+  for (const n of numbers) {
+    if (n <= isSmallest) {
+      isSmallest = n;
+    }
+  }
+  return isSmallest;
 }
 
 /**
@@ -35,7 +46,13 @@ function getMin(numbers) {
  * @returns {number} the largest of the numbers
  */
 function getMax(numbers) {
-  // TODO
+  let isBiggest = numbers[0];
+  for (const n of numbers) {
+    if (n >= isBiggest) {
+      isBiggest = n;
+    }
+  }
+  return isBiggest;
 }
 
 /**
@@ -43,7 +60,7 @@ function getMax(numbers) {
  * @returns {number} the range of the numbers (max - min)
  */
 function getRange(numbers) {
-  // TODO
+  return getMax(numbers) - getMin(numbers);
 }
 
 /**
@@ -51,7 +68,13 @@ function getRange(numbers) {
  * @returns {number[]} the even numbers in the array
  */
 function getEvens(numbers) {
-  // TODO
+  const evenNums = [];
+  for (const n of numbers) {
+    if (n % 2 === 0) {
+      evenNums.push(n);
+    }
+  }
+  return evenNums;
 }
 
 /**
@@ -59,7 +82,13 @@ function getEvens(numbers) {
  * @returns {number[]} the odd numbers in the array
  */
 function getOdds(numbers) {
-  // TODO
+  const oddNums = [];
+  for (const n of numbers) {
+    if (n % 2 === 1 || n % 2 === -1) {
+      oddNums.push(n);
+    }
+  }
+  return oddNums;
 }
 
 // === READ BUT DO NOT EDIT THE CODE BELOW ===
@@ -97,9 +126,12 @@ function describeNumbers(numbers) {
   console.log(`The odd numbers you gave are ${getOdds(numbers)}.`);
 }
 
-const userInputString = prompt(
-  "Please enter some integers separated by commas.",
-  "28,-15,30,975,400"
-);
-const numbers = convertStringToNumbers(userInputString);
-describeNumbers(numbers);
+newFunction();
+function newFunction() {
+  const userInputString = prompt(
+    "Please enter some integers separated by commas.",
+    "28,-15,30,975,400"
+  );
+  const numbers = convertStringToNumbers(userInputString);
+  describeNumbers(numbers);
+}
